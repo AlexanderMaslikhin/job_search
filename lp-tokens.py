@@ -10,8 +10,9 @@ def calc_result(value, pool_list, fee=0.3):
     :return: возвращает итоговое количество монет
     """
     fee_coeff = 1 - fee / 100
+    value = value * fee_coeff
     for a, b in pool_list:
-        value = fee_coeff * (b - (a * b) / (a + value))
+        value = b - (a * b) / (a + value)
     return value
 
 
