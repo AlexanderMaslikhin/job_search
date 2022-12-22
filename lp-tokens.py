@@ -16,7 +16,7 @@ def calc_result(value, pool_list, fee=0.3):
     return value
 
 
-def prime(value, pool_list):
+def prime(value, pool_list, fee=0.3):
     """
     Вычисляет производную f'(x)
     :param value:
@@ -25,7 +25,8 @@ def prime(value, pool_list):
     """
     a, b = pool_list[-1]
     if len(pool_list) == 1:
-        return (a * b) / (a + value) ** 2
+        fee_coeff = 1 - fee / 100
+        return (a * b) / (a + value * fee_coeff) ** 2
     else:
         f_x = calc_result(value, pool_list[:-1])
         return (a * b) / (a + f_x) ** 2 * prime(value, pool_list[:-1])
