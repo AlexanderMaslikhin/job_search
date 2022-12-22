@@ -49,7 +49,7 @@ def grad_desc(pool_list, start, iter_num=1e6, lr=1., stop_prime=1e-3):
         if abs(grad) <= stop_prime:
             break
         iter_count += 1
-        if iter_count % 1000 == 0:
+        if iter_count % 100 == 0:
             print(f'iter: {iter_count}, grad: {grad}, x: {x}')
     return x
 
@@ -69,7 +69,7 @@ if __name__ == '__main__':
     ]
     first_coin, second_coin = pool_lst[0]
     start_point = (first_coin * second_coin)/(second_coin - 1) - first_coin
-    lr = first_coin / 100000
+    lr = first_coin / 10000
     x = grad_desc(pool_lst, start_point, lr=lr)
     f_x = calc_result(x, pool_lst)
     revenue = f_x - x
