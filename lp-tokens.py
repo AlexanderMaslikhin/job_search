@@ -45,8 +45,8 @@ def grad_desc(pool_list, start, iter_num=1e6, lr=1., stop_prime=1e-3):
     iter_count = 0  # iterations counter
     x = start
     while iter_count < iter_num:
-        grad = prime(x, pool_list) - 1
-        x += grad * lr  # (f(x) - x)' = f'(x) - 1
+        grad = prime(x, pool_list) - 1 # (f(x) - x)' = f'(x) - 1
+        x += grad * lr
         if abs(grad) <= stop_prime:
             break
         iter_count += 1
