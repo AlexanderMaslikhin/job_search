@@ -29,4 +29,9 @@ pool_lst = [
         (22496742244741, 4310194783973)
 ]
 
-print(find_max(pool_lst, func))
+x = find_max(pool_lst, func)
+_, _, _, f_x = func(x, pool_lst)
+revenue = f_x - x
+print(f'При продаже {x} монет в начале цепи получим {f_x} монет')
+print(f'Выручка составит {revenue} монет')
+
