@@ -16,6 +16,8 @@ def find_max(pool_list, f):
     k1 = 2 * b * c
     k0 = b ** 2 - a * b
     D = k1 ** 2 - 4 * k2 * k0
+    if D < 0:
+        return 'Error: there is no decissions'
     x1 = (-k1 + sqrt(D)) / (2*k2)
     x2 = (-k2 - sqrt(D)) / (2*k2)
     return max(x1, x2)
